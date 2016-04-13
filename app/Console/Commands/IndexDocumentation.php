@@ -46,6 +46,7 @@ class IndexDocumentation extends Command
         $indexer = $tnt->createIndex('trudnoca.index');
         $indexer->query('SELECT * FROM articles;');
         $indexer->setLanguage('croatian');
+        $indexer->steps = 10;
         $indexer->run();
     }
 
@@ -72,11 +73,11 @@ class IndexDocumentation extends Command
             });
             $article = new Article;
 
-            $crawler->filter('body.single-post h1')->each(function($node) use (&$article) {
+            $crawler->filter('.week h1')->each(function($node) use (&$article) {
                 $article->title = $node->text();
             });
 
-            $crawler->filter('.content .article_wrap .text-control')->each(function($node) use (&$article) {
+            $crawler->filter('.content .week_left')->each(function($node) use (&$article) {
                 $article->article = $node->html();
             });
 
