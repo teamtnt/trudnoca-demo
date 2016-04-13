@@ -1,7 +1,7 @@
 <div class="titlepage"><div><div><h1 class="title">
 <a id="fixtures"></a>Chapter 4. Fixtures</h1></div></div></div>
 <p>
-    <a id="idp137584" class="indexterm"></a>
+    <a id="idp92928" class="indexterm"></a>
 
     One of the most time-consuming parts of writing tests is writing the
     code to set the world up in a known state and then return it to its
@@ -20,9 +20,9 @@
     for each test we write.
   </p>
 <p>
-    <a id="idp298256" class="indexterm"></a>
-    <a id="idp298832" class="indexterm"></a>
-    <a id="idp299408" class="indexterm"></a>
+    <a id="idp305600" class="indexterm"></a>
+    <a id="idp306176" class="indexterm"></a>
+    <a id="idp306752" class="indexterm"></a>
 
     PHPUnit supports sharing the setup code. Before a test method is run, a
     template method called <code class="literal">setUp()</code> is invoked.
@@ -81,25 +81,25 @@ class StackTest extends PHPUnit_Framework_TestCase
 ?&gt;</pre></div>
 </div>
 <br class="example-break"><p>
-    <a id="idp228928" class="indexterm"></a>
-    <a id="idp229504" class="indexterm"></a>
-    <a id="idp230080" class="indexterm"></a>
-    <a id="idp230656" class="indexterm"></a>
-    <a id="idp231232" class="indexterm"></a>
+    <a id="idp222672" class="indexterm"></a>
+    <a id="idp223248" class="indexterm"></a>
+    <a id="idp223824" class="indexterm"></a>
+    <a id="idp224400" class="indexterm"></a>
+    <a id="idp224976" class="indexterm"></a>
 
     The <code class="literal">setUp()</code> and <code class="literal">tearDown()</code> template
     methods are run once for each test method (and on fresh instances) of the
     test case class.
   </p>
 <p>
-    <a id="idp233248" class="indexterm"></a>
-    <a id="idp233824" class="indexterm"></a>
-    <a id="idp234400" class="indexterm"></a>
-    <a id="idp234976" class="indexterm"></a>
-    <a id="idp235552" class="indexterm"></a>
-    <a id="idp236128" class="indexterm"></a>
-    <a id="idp236704" class="indexterm"></a>
-    <a id="idp237280" class="indexterm"></a>
+    <a id="idp236720" class="indexterm"></a>
+    <a id="idp237296" class="indexterm"></a>
+    <a id="idp237872" class="indexterm"></a>
+    <a id="idp238448" class="indexterm"></a>
+    <a id="idp239024" class="indexterm"></a>
+    <a id="idp239600" class="indexterm"></a>
+    <a id="idp240176" class="indexterm"></a>
+    <a id="idp240752" class="indexterm"></a>
 
     In addition, the <code class="literal">setUpBeforeClass()</code> and
     <code class="literal">tearDownAfterClass()</code> template methods are called before
@@ -107,7 +107,7 @@ class StackTest extends PHPUnit_Framework_TestCase
     test case class is run, respectively.
   </p>
 <p>
-    <a id="idp239344" class="indexterm"></a>
+    <a id="idp242816" class="indexterm"></a>
 
     The example below shows all template methods that are available in a test
     case class.
@@ -168,7 +168,7 @@ class TemplateMethodsTest extends PHPUnit_Framework_TestCase
 }
 ?&gt;</pre>
 <pre class="screen"><strong class="userinput"><code>phpunit TemplateMethodsTest</code></strong>
-PHPUnit 5.2.0 by Sebastian Bergmann and contributors.
+PHPUnit 5.3.0 by Sebastian Bergmann and contributors.
 
 TemplateMethodsTest::setUpBeforeClass
 TemplateMethodsTest::setUp
@@ -247,8 +247,8 @@ Tests: 2, Assertions: 2, Failures: 1.</pre>
       test. This makes your tests run faster.
     </p>
 <p>
-      <a id="idp440528" class="indexterm"></a>
-      <a id="idp441104" class="indexterm"></a>
+      <a id="idp447424" class="indexterm"></a>
+      <a id="idp448000" class="indexterm"></a>
 
       <a class="xref" href="fixtures.html#fixtures.sharing-fixture.examples.DatabaseTest.php" title="Example 4.3: Sharing fixture between the tests of a test suite">Example 4.3</a>
       uses the <code class="literal">setUpBeforeClass()</code> and
@@ -309,8 +309,8 @@ class DatabaseTest extends PHPUnit_Framework_TestCase
       the global state.
     </p>
 <p>
-      <a id="idp457008" class="indexterm"></a>
-      <a id="idp457584" class="indexterm"></a>
+      <a id="idp463808" class="indexterm"></a>
+      <a id="idp464384" class="indexterm"></a>
 
       By default, PHPUnit runs your tests in a way where changes to global
       and super-global variables (<code class="literal">$GLOBALS</code>,
@@ -334,8 +334,8 @@ class DatabaseTest extends PHPUnit_Framework_TestCase
       </p>
 </div>
 <p>
-      <a id="idp465744" class="indexterm"></a>
-      <a id="idp466448" class="indexterm"></a>
+      <a id="idp472544" class="indexterm"></a>
+      <a id="idp473248" class="indexterm"></a>
 
       The <code class="literal">@backupGlobals</code> annotation that is discussed in
       <a class="xref" href="appendixes.annotations.html#appendixes.annotations.backupGlobals" title="@backupGlobals">the section called “@backupGlobals”</a> can be used to
@@ -359,8 +359,8 @@ class DatabaseTest extends PHPUnit_Framework_TestCase
       </p>
 </div>
 <p>
-      <a id="idp471248" class="indexterm"></a>
-      <a id="idp471952" class="indexterm"></a>
+      <a id="idp478048" class="indexterm"></a>
+      <a id="idp478752" class="indexterm"></a>
 
       The <code class="literal">@backupStaticAttributes</code> annotation discussed in
       <a class="xref" href="appendixes.annotations.html#appendixes.annotations.backupStaticAttributes" title="@backupStaticAttributes">the section called “@backupStaticAttributes”</a>

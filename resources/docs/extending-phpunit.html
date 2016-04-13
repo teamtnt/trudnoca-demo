@@ -9,7 +9,7 @@
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a id="extending-phpunit.PHPUnit_Framework_TestCase"></a>Subclass PHPUnit_Framework_TestCase</h2></div></div></div>
 <p>
-      <a id="idp801344" class="indexterm"></a>
+      <a id="idp807296" class="indexterm"></a>
 
       Write custom assertions and utility methods in an abstract subclass of
       <code class="literal">PHPUnit_Framework_TestCase</code> and derive your test case
@@ -112,7 +112,7 @@ class PHPUnit_Framework_Constraint_IsTrue extends PHPUnit_Framework_Constraint
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a id="extending-phpunit.PHPUnit_Framework_TestListener"></a>Implement PHPUnit_Framework_TestListener</h2></div></div></div>
 <p>
-      <a id="idp1327200" class="indexterm"></a>
+      <a id="idp1334496" class="indexterm"></a>
 
       <a class="xref" href="extending-phpunit.html#extending-phpunit.examples.SimpleTestListener.php" title="Example 14.3: A simple test listener">Example 14.3</a>
       shows a simple implementation of the <code class="literal">PHPUnit_Framework_TestListener</code>
@@ -171,7 +171,7 @@ class SimpleTestListener implements PHPUnit_Framework_TestListener
 ?&gt;</pre></div>
 </div>
 <br class="example-break"><p>
-      <a id="idp1332432" class="indexterm"></a>
+      <a id="idp1339728" class="indexterm"></a>
 
       <a class="xref" href="extending-phpunit.html#extending-phpunit.examples.BaseTestListener.php" title="Example 14.4: Using base test listener">Example 14.4</a>
       shows how to subclass the <code class="literal">PHPUnit_Framework_BaseTestListener</code>
@@ -201,7 +201,7 @@ class ShortTestListener extends PHPUnit_Framework_BaseTestListener
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a id="extending-phpunit.PHPUnit_Extensions_TestDecorator"></a>Subclass PHPUnit_Extensions_TestDecorator</h2></div></div></div>
 <p>
-      <a id="idp1338928" class="indexterm"></a>
+      <a id="idp1346224" class="indexterm"></a>
 
       You can wrap test cases or test suites in a subclass of
       <code class="literal">PHPUnit_Extensions_TestDecorator</code> and use the
@@ -209,7 +209,7 @@ class ShortTestListener extends PHPUnit_Framework_BaseTestListener
       test runs.
     </p>
 <p>
-      <a id="idp1340496" class="indexterm"></a>
+      <a id="idp1347872" class="indexterm"></a>
 
       PHPUnit ships with one concrete test decorator:
       <code class="literal">PHPUnit_Extensions_RepeatedTest</code>. It is used to run a
@@ -266,8 +266,8 @@ class PHPUnit_Extensions_RepeatedTest extends PHPUnit_Extensions_TestDecorator
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a id="extending-phpunit.PHPUnit_Framework_Test"></a>Implement PHPUnit_Framework_Test</h2></div></div></div>
 <p>
-      <a id="idp1367792" class="indexterm"></a>
-      <a id="idp1368368" class="indexterm"></a>
+      <a id="idp1373712" class="indexterm"></a>
+      <a id="idp1374288" class="indexterm"></a>
 
       The <code class="literal">PHPUnit_Framework_Test</code> interface is narrow and
       easy to implement. You can write an implementation of
@@ -343,7 +343,7 @@ class DataDrivenTest implements PHPUnit_Framework_Test
 $test = new DataDrivenTest('data_file.csv');
 $result = PHPUnit_TextUI_TestRunner::run($test);
 ?&gt;</pre>
-<pre class="screen">PHPUnit 5.2.0 by Sebastian Bergmann and contributors.
+<pre class="screen">PHPUnit 5.3.0 by Sebastian Bergmann and contributors.
 
 .F
 

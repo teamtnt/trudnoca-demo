@@ -9,7 +9,7 @@
 <td width="10%" valign="top"> </td>
 <td width="80%" valign="top">
 <p>
-      <a id="idp954128" class="indexterm"></a>
+      <a id="idp960096" class="indexterm"></a>
 
       Sometimes it is just plain hard to test the system under test (SUT)
       because it depends on other components that cannot be used in the test
@@ -19,8 +19,8 @@
       us to have more control or visibility of the internal behavior of the SUT.
     </p>
 <p>
-      <a id="idp955616" class="indexterm"></a>
-      <a id="idp956192" class="indexterm"></a>
+      <a id="idp961584" class="indexterm"></a>
+      <a id="idp962160" class="indexterm"></a>
 
       When we are writing a test in which we cannot (or chose not to) use a real
       depended-on component (DOC), we can replace it with a Test Double. The
@@ -73,7 +73,7 @@
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a id="test-doubles.stubs"></a>Stubs</h2></div></div></div>
 <p>
-      <a id="idp932832" class="indexterm"></a>
+      <a id="idp767616" class="indexterm"></a>
 
       The practice of replacing an object with a test double that (optionally)
       returns configured return values is referred to as
@@ -83,7 +83,7 @@
       force the SUT down paths it might not otherwise execute".
     </p>
 <p>
-      <a id="idp935104" class="indexterm"></a>
+      <a id="idp769888" class="indexterm"></a>
 
       <a class="xref" href="test-doubles.html#test-doubles.stubs.examples.StubTest.php" title="Example 9.2: Stubbing a method call to return a fixed value">Example 9.2</a> shows how
       to stub method calls and set up return values. We first use the
@@ -112,7 +112,7 @@ class SomeClass
 <br class="example-break"><div class="example">
 <a id="test-doubles.stubs.examples.StubTest.php"></a><p class="title"><strong>Example 9.2: Stubbing a method call to return a fixed value</strong></p>
 <div class="example-contents">
-<a id="idp941696" class="indexterm"></a><a id="idp942272" class="indexterm"></a><a id="idp942848" class="indexterm"></a><pre class="programlisting">&lt;?php
+<a id="idp776544" class="indexterm"></a><a id="idp777120" class="indexterm"></a><a id="idp777696" class="indexterm"></a><pre class="programlisting">&lt;?php
 require_once 'SomeClass.php';
 
 class StubTest extends PHPUnit_Framework_TestCase
@@ -158,7 +158,7 @@ class StubTest extends PHPUnit_Framework_TestCase
 <div class="example">
 <a id="test-doubles.stubs.examples.StubTest2.php"></a><p class="title"><strong>Example 9.3: Using the Mock Builder API can be used to configure the generated test double class</strong></p>
 <div class="example-contents">
-<a id="idp695552" class="indexterm"></a><a id="idp696128" class="indexterm"></a><a id="idp696704" class="indexterm"></a><pre class="programlisting">&lt;?php
+<a id="idp914880" class="indexterm"></a><a id="idp915456" class="indexterm"></a><a id="idp916032" class="indexterm"></a><pre class="programlisting">&lt;?php
 require_once 'SomeClass.php';
 
 class StubTest extends PHPUnit_Framework_TestCase
@@ -209,7 +209,7 @@ class StubTest extends PHPUnit_Framework_TestCase
 <div class="example">
 <a id="test-doubles.stubs.examples.StubTest3.php"></a><p class="title"><strong>Example 9.4: Stubbing a method call to return one of the arguments</strong></p>
 <div class="example-contents">
-<a id="idp1170304" class="indexterm"></a><a id="idp1170880" class="indexterm"></a><a id="idp1171456" class="indexterm"></a><a id="idp1172032" class="indexterm"></a><pre class="programlisting">&lt;?php
+<a id="idp1176336" class="indexterm"></a><a id="idp1176912" class="indexterm"></a><a id="idp1177488" class="indexterm"></a><a id="idp1178064" class="indexterm"></a><pre class="programlisting">&lt;?php
 require_once 'SomeClass.php';
 
 class StubTest extends PHPUnit_Framework_TestCase
@@ -243,7 +243,7 @@ class StubTest extends PHPUnit_Framework_TestCase
 <div class="example">
 <a id="test-doubles.stubs.examples.StubTest4.php"></a><p class="title"><strong>Example 9.5: Stubbing a method call to return a reference to the stub object</strong></p>
 <div class="example-contents">
-<a id="idp1176528" class="indexterm"></a><a id="idp1177104" class="indexterm"></a><a id="idp1177680" class="indexterm"></a><a id="idp1178256" class="indexterm"></a><pre class="programlisting">&lt;?php
+<a id="idp1182560" class="indexterm"></a><a id="idp1183136" class="indexterm"></a><a id="idp1183712" class="indexterm"></a><a id="idp1184288" class="indexterm"></a><pre class="programlisting">&lt;?php
 require_once 'SomeClass.php';
 
 class StubTest extends PHPUnit_Framework_TestCase
@@ -276,7 +276,7 @@ class StubTest extends PHPUnit_Framework_TestCase
 <div class="example">
 <a id="test-doubles.stubs.examples.StubTest5.php"></a><p class="title"><strong>Example 9.6: Stubbing a method call to return the value from a map</strong></p>
 <div class="example-contents">
-<a id="idp1182704" class="indexterm"></a><a id="idp1183280" class="indexterm"></a><a id="idp1183856" class="indexterm"></a><a id="idp1184432" class="indexterm"></a><pre class="programlisting">&lt;?php
+<a id="idp1188736" class="indexterm"></a><a id="idp1189312" class="indexterm"></a><a id="idp1189888" class="indexterm"></a><a id="idp1190464" class="indexterm"></a><pre class="programlisting">&lt;?php
 require_once 'SomeClass.php';
 
 class StubTest extends PHPUnit_Framework_TestCase
@@ -317,7 +317,7 @@ class StubTest extends PHPUnit_Framework_TestCase
 <div class="example">
 <a id="test-doubles.stubs.examples.StubTest6.php"></a><p class="title"><strong>Example 9.7: Stubbing a method call to return a value from a callback</strong></p>
 <div class="example-contents">
-<a id="idp1190064" class="indexterm"></a><a id="idp1190640" class="indexterm"></a><a id="idp1191216" class="indexterm"></a><a id="idp1191792" class="indexterm"></a><pre class="programlisting">&lt;?php
+<a id="idp1196096" class="indexterm"></a><a id="idp1196672" class="indexterm"></a><a id="idp1197248" class="indexterm"></a><a id="idp1197824" class="indexterm"></a><pre class="programlisting">&lt;?php
 require_once 'SomeClass.php';
 
 class StubTest extends PHPUnit_Framework_TestCase
@@ -350,7 +350,7 @@ class StubTest extends PHPUnit_Framework_TestCase
 <a id="test-doubles.stubs.examples.StubTest7.php"></a><p class="title"><strong>Example 9.8: Stubbing a method call to return a list of values in the
       specified order</strong></p>
 <div class="example-contents">
-<a id="idp1196240" class="indexterm"></a><a id="idp1196816" class="indexterm"></a><a id="idp1197392" class="indexterm"></a><a id="idp1197968" class="indexterm"></a><pre class="programlisting">&lt;?php
+<a id="idp1202272" class="indexterm"></a><a id="idp1202848" class="indexterm"></a><a id="idp1203424" class="indexterm"></a><a id="idp1204000" class="indexterm"></a><pre class="programlisting">&lt;?php
 require_once 'SomeClass.php';
 
 class StubTest extends PHPUnit_Framework_TestCase
@@ -382,7 +382,7 @@ class StubTest extends PHPUnit_Framework_TestCase
 <div class="example">
 <a id="test-doubles.stubs.examples.StubTest8.php"></a><p class="title"><strong>Example 9.9: Stubbing a method call to throw an exception</strong></p>
 <div class="example-contents">
-<a id="idp1202480" class="indexterm"></a><a id="idp1203056" class="indexterm"></a><a id="idp1203632" class="indexterm"></a><a id="idp1204208" class="indexterm"></a><pre class="programlisting">&lt;?php
+<a id="idp1208512" class="indexterm"></a><a id="idp1209088" class="indexterm"></a><a id="idp1209664" class="indexterm"></a><a id="idp1210240" class="indexterm"></a><pre class="programlisting">&lt;?php
 require_once 'SomeClass.php';
 
 class StubTest extends PHPUnit_Framework_TestCase
@@ -433,7 +433,7 @@ class StubTest extends PHPUnit_Framework_TestCase
       referred to as <span class="emphasis"><em>mocking</em></span>.
     </p>
 <p>
-      <a id="idp1212000" class="indexterm"></a>
+      <a id="idp1218032" class="indexterm"></a>
 
       You can use a <span class="emphasis"><em>mock object</em></span> "as an observation point
       that is used to verify the indirect outputs of the SUT as it is exercised.
@@ -525,7 +525,7 @@ class Observer
 ?&gt;</pre></div>
 </div>
 <br class="example-break"><p>
-      <a id="idp1221408" class="indexterm"></a>
+      <a id="idp1227440" class="indexterm"></a>
 
       <a class="xref" href="test-doubles.html#test-doubles.mock-objects.examples.SubjectTest.php" title="Example 9.11: Testing that a method gets called once and with a specified argument">Example 9.11</a>
       shows how to use a mock object to test the interaction between
@@ -838,7 +838,7 @@ class SubjectTest extends PHPUnit_Framework_TestCase
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a id="test-doubles.mocking-traits-and-abstract-classes"></a>Mocking Traits and Abstract Classes</h2></div></div></div>
 <p>
-      <a id="idp1277232" class="indexterm"></a>
+      <a id="idp1283264" class="indexterm"></a>
 
       The <code class="literal">getMockForTrait()</code> method returns a mock object
       that uses a specified trait. All abstract methods of the given trait
@@ -873,7 +873,7 @@ class TraitClassTest extends PHPUnit_Framework_TestCase
 ?&gt;</pre></div>
 </div>
 <br class="example-break"><p>
-      <a id="idp1281040" class="indexterm"></a>
+      <a id="idp1287072" class="indexterm"></a>
 
       The <code class="literal">getMockForAbstractClass()</code> method returns a mock
       object for an abstract class. All abstract methods of the given abstract
@@ -914,7 +914,7 @@ class AbstractClassTest extends PHPUnit_Framework_TestCase
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a id="test-doubles.stubbing-and-mocking-web-services"></a>Stubbing and Mocking Web Services</h2></div></div></div>
 <p>
-      <a id="idp1286176" class="indexterm"></a>
+      <a id="idp1292208" class="indexterm"></a>
 
       When your application interacts with a web service you want to test it
       without actually interacting with the web service. To make the stubbing

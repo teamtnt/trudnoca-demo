@@ -1,7 +1,7 @@
 <div class="titlepage"><div><div><h1 class="title">
 <a id="organizing-tests"></a>Chapter 5. Organizing Tests</h1></div></div></div>
 <p>
-    <a id="idp2416" class="indexterm"></a>
+    <a id="idp232080" class="indexterm"></a>
 
     One of the goals of PHPUnit is that tests
     should be composable: we want to be able to run any number or combination
@@ -36,12 +36,10 @@
 `-- autoload.php</pre>
 <p>
       To run all tests for the library we just need to point the PHPUnit
-      command-line test runner to the test directory (see
-      <a class="ulink" href="https://phpunit.de/manual/5.2/en/textui.html" target="_top">Chapter 3</a>
-      for various, other command-line options):
+      command-line test runner to the test directory:
     </p>
 <pre class="screen"><strong class="userinput"><code>phpunit --bootstrap src/autoload.php tests</code></strong>
-PHPUnit 5.2.0 by Sebastian Bergmann.
+PHPUnit 5.3.0 by Sebastian Bergmann.
 
 .................................
 
@@ -61,7 +59,7 @@ OK (33 tests, 52 assertions)</pre>
       the following command:
     </p>
 <pre class="screen"><strong class="userinput"><code>phpunit --bootstrap src/autoload.php tests/CurrencyTest</code></strong>
-PHPUnit 5.2.0 by Sebastian Bergmann.
+PHPUnit 5.3.0 by Sebastian Bergmann.
 
 ........
 
@@ -73,7 +71,7 @@ OK (8 tests, 8 assertions)</pre>
       <code class="literal">--filter</code> option:
     </p>
 <pre class="screen"><strong class="userinput"><code>phpunit --bootstrap src/autoload.php --filter testObjectCanBeConstructedForValidConstructorArgument tests</code></strong>
-PHPUnit 5.2.0 by Sebastian Bergmann.
+PHPUnit 5.3.0 by Sebastian Bergmann.
 
 ..
 
@@ -94,7 +92,7 @@ OK (2 test, 2 assertions)</pre>
 <div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a id="organizing-tests.xml-configuration"></a>Composing a Test Suite Using XML Configuration</h2></div></div></div>
-<a id="idp250976" class="indexterm"></a><p>
+<a id="idp43936" class="indexterm"></a><p>
       PHPUnit's XML configuration file (<a class="xref" href="appendixes.configuration.html" title="Appendix C. The XML Configuration File">Appendix C</a>)
       can also be used to compose a test suite.
       <a class="xref" href="organizing-tests.html#organizing-tests.xml-configuration.examples.phpunit.xml" title="Example 5.1: Composing a Test Suite Using XML Configuration">Example 5.1</a>

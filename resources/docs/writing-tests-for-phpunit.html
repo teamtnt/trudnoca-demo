@@ -1,7 +1,7 @@
 <div class="titlepage"><div><div><h1 class="title">
 <a id="writing-tests-for-phpunit"></a>Chapter 2. Writing Tests for PHPUnit</h1></div></div></div>
 <p>
-    <a id="idp93488" class="indexterm"></a>
+    <a id="idp100144" class="indexterm"></a>
 
     <a class="xref" href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.examples.StackTest.php" title="Example 2.1: Testing array operations with PHPUnit">Example 2.1</a> shows
     how we can write tests using PHPUnit that exercise PHP's array operations.
@@ -13,7 +13,7 @@
 <li class="listitem"><p><code class="literal">ClassTest</code> inherits (most of the time) from <code class="literal">PHPUnit_Framework_TestCase</code>.</p></li>
 <li class="listitem">
 <p>The tests are public methods that are named <code class="literal">test*</code>.</p>
-<p><a id="idp69440" class="indexterm"></a><a id="idp69856" class="indexterm"></a>Alternatively, you can use the <code class="literal">@test</code> annotation in a method's docblock to mark it as a test method.</p>
+<p><a id="idp76400" class="indexterm"></a><a id="idp76816" class="indexterm"></a>Alternatively, you can use the <code class="literal">@test</code> annotation in a method's docblock to mark it as a test method.</p>
 </li>
 <li class="listitem"><p>Inside the test methods, assertion methods such as <code class="literal">assertEquals()</code> (see <a class="xref" href="appendixes.assertions.html" title="Appendix A. Assertions">Appendix A</a>) are used to assert that an actual value matches an expected value.</p></li>
 </ol></div>
@@ -78,7 +78,7 @@ class StackTest extends PHPUnit_Framework_TestCase
 </tr>
 </table></div>
 <p>
-      <a id="idp198736" class="indexterm"></a>
+      <a id="idp205584" class="indexterm"></a>
 
       PHPUnit supports the declaration of explicit dependencies between test
       methods. Such dependencies do not define the order in which the test
@@ -90,8 +90,8 @@ class StackTest extends PHPUnit_Framework_TestCase
 <li class="listitem"><p>A consumer is a test method that depends on one or more producers and their return values.</p></li>
 </ul></div>
 <p>
-      <a id="idp201712" class="indexterm"></a>
-      <a id="idp202288" class="indexterm"></a>
+      <a id="idp208560" class="indexterm"></a>
+      <a id="idp209136" class="indexterm"></a>
 
       <a class="xref" href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.examples.StackTest2.php" title="Example 2.2: Using the @depends annotation to express dependencies">Example 2.2</a> shows
       how to use the <code class="literal">@depends</code> annotation to express
@@ -144,8 +144,8 @@ class StackTest extends PHPUnit_Framework_TestCase
 <div class="alert alert-info">
 <h3 class="title">Note</h3>
 <p>
-        <a id="idp94112" class="indexterm"></a>
-        <a id="idp94688" class="indexterm"></a>
+        <a id="idp100768" class="indexterm"></a>
+        <a id="idp101344" class="indexterm"></a>
 
         The return value yielded by a producer is passed "as-is" to its
         consumers by default. This means that when a producer returns an object
@@ -155,7 +155,7 @@ class StackTest extends PHPUnit_Framework_TestCase
       </p>
 </div>
 <p>
-      <a id="idp97008" class="indexterm"></a>
+      <a id="idp103664" class="indexterm"></a>
 
       To quickly localize defects, we want our attention to be focussed on
       relevant failing tests. This is why PHPUnit skips the execution of a test
@@ -183,7 +183,7 @@ class DependencyFailureTest extends PHPUnit_Framework_TestCase
 }
 ?&gt;</pre>
 <pre class="screen"><strong class="userinput"><code>phpunit --verbose DependencyFailureTest</code></strong>
-PHPUnit 5.2.0 by Sebastian Bergmann and contributors.
+PHPUnit 5.3.0 by Sebastian Bergmann and contributors.
 
 FS
 
@@ -250,7 +250,7 @@ class MultipleDependenciesTest extends PHPUnit_Framework_TestCase
 }
 ?&gt;</pre>
 <pre class="screen"><strong class="userinput"><code>phpunit --verbose MultipleDependenciesTest</code></strong>
-PHPUnit 5.2.0 by Sebastian Bergmann and contributors.
+PHPUnit 5.3.0 by Sebastian Bergmann and contributors.
 
 ...
 
@@ -265,8 +265,8 @@ OK (3 tests, 3 assertions)</pre>
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a id="writing-tests-for-phpunit.data-providers"></a>Data Providers</h2></div></div></div>
 <p>
-      <a id="idp108752" class="indexterm"></a>
-      <a id="idp109328" class="indexterm"></a>
+      <a id="idp115408" class="indexterm"></a>
+      <a id="idp115984" class="indexterm"></a>
       A test method can accept arbitrary arguments. These arguments are to be
       provided by a data provider method (<code class="literal">additionProvider()</code> in
       <a class="xref" href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.data-providers.examples.DataTest.php" title="Example 2.5: Using a data provider that returns an array of arrays">Example 2.5</a>).
@@ -306,7 +306,7 @@ class DataTest extends PHPUnit_Framework_TestCase
 }
 ?&gt;</pre>
 <pre class="screen"><strong class="userinput"><code>phpunit DataTest</code></strong>
-PHPUnit 5.2.0 by Sebastian Bergmann and contributors.
+PHPUnit 5.3.0 by Sebastian Bergmann and contributors.
 
 ...F
 
@@ -353,7 +353,7 @@ class DataTest extends PHPUnit_Framework_TestCase
 }
 ?&gt;</pre>
 <pre class="screen"><strong class="userinput"><code>phpunit DataTest</code></strong>
-PHPUnit 5.2.0 by Sebastian Bergmann and contributors.
+PHPUnit 5.3.0 by Sebastian Bergmann and contributors.
 
 ...F
 
@@ -393,7 +393,7 @@ class DataTest extends PHPUnit_Framework_TestCase
 }
 ?&gt;</pre>
 <pre class="screen"><strong class="userinput"><code>phpunit DataTest</code></strong>
-PHPUnit 5.2.0 by Sebastian Bergmann and contributors.
+PHPUnit 5.3.0 by Sebastian Bergmann and contributors.
 
 ...F
 
@@ -452,9 +452,9 @@ class CsvFileIterator implements Iterator {
 ?&gt;</pre></div>
 </div>
 <br class="example-break"><p>
-      <a id="idp327776" class="indexterm"></a>
-      <a id="idp328352" class="indexterm"></a>
-      <a id="idp328928" class="indexterm"></a>
+      <a id="idp334352" class="indexterm"></a>
+      <a id="idp334928" class="indexterm"></a>
+      <a id="idp335504" class="indexterm"></a>
 
       When a test receives input from both a <code class="literal">@dataProvider</code>
       method and from one or more tests it <code class="literal">@depends</code> on, the
@@ -501,7 +501,7 @@ class DependencyAndDataProviderComboTest extends PHPUnit_Framework_TestCase
 }
 ?&gt;</pre>
 <pre class="screen"><strong class="userinput"><code>phpunit --verbose DependencyAndDataProviderComboTest</code></strong>
-PHPUnit 5.2.0 by Sebastian Bergmann and contributors.
+PHPUnit 5.3.0 by Sebastian Bergmann and contributors.
 
 ...F
 
@@ -531,9 +531,9 @@ Tests: 4, Assertions: 4, Failures: 1.
 <br class="example-break"><div class="alert alert-info">
 <h3 class="title">Note</h3>
 <p>
-        <a id="idp335616" class="indexterm"></a>
-        <a id="idp336192" class="indexterm"></a>
-        <a id="idp336768" class="indexterm"></a>
+        <a id="idp342192" class="indexterm"></a>
+        <a id="idp342768" class="indexterm"></a>
+        <a id="idp343344" class="indexterm"></a>
 
         When a test depends on a test that uses data providers, the depending
         test will be executed when the test it depends upon is successful for at
@@ -544,9 +544,9 @@ Tests: 4, Assertions: 4, Failures: 1.
 <div class="alert alert-info">
 <h3 class="title">Note</h3>
 <p>
-        <a id="idp338512" class="indexterm"></a>
-        <a id="idp339088" class="indexterm"></a>
-        <a id="idp339664" class="indexterm"></a>
+        <a id="idp345088" class="indexterm"></a>
+        <a id="idp345664" class="indexterm"></a>
+        <a id="idp346240" class="indexterm"></a>
 
         All data providers are executed before both the call to the <code class="literal">setUpBeforeClass</code>
         static method and the first call to the <code class="literal">setUp</code> method.
@@ -560,8 +560,8 @@ Tests: 4, Assertions: 4, Failures: 1.
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a id="writing-tests-for-phpunit.exceptions"></a>Testing Exceptions</h2></div></div></div>
 <p>
-      <a id="idp343216" class="indexterm"></a>
-      <a id="idp343792" class="indexterm"></a>
+      <a id="idp349792" class="indexterm"></a>
+      <a id="idp350368" class="indexterm"></a>
 
       <a class="xref" href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.exceptions.examples.ExceptionTest.php" title="Example 2.10: Using the expectException() method">Example 2.10</a>
       shows how to use the <code class="literal">expectException()</code> method to test
@@ -580,7 +580,7 @@ class ExceptionTest extends PHPUnit_Framework_TestCase
 }
 ?&gt;</pre>
 <pre class="screen"><strong class="userinput"><code>phpunit ExceptionTest</code></strong>
-PHPUnit 5.2.0 by Sebastian Bergmann and contributors.
+PHPUnit 5.3.0 by Sebastian Bergmann and contributors.
 
 F
 
@@ -596,9 +596,9 @@ Tests: 1, Assertions: 1, Failures: 1.</pre>
 </div>
 </div>
 <br class="example-break"><p>
-      <a id="idp348752" class="indexterm"></a>
-      <a id="idp349328" class="indexterm"></a>
-      <a id="idp349920" class="indexterm"></a>
+      <a id="idp355328" class="indexterm"></a>
+      <a id="idp355904" class="indexterm"></a>
+      <a id="idp356496" class="indexterm"></a>
 
       In addition to the <code class="literal">expectException()</code> method the
       <code class="literal">expectExceptionCode()</code>,
@@ -607,8 +607,8 @@ Tests: 1, Assertions: 1, Failures: 1.</pre>
       expectations for exceptions raised by the code under test.
     </p>
 <p>
-      <a id="idp352880" class="indexterm"></a>
-      <a id="idp353456" class="indexterm"></a>
+      <a id="idp359456" class="indexterm"></a>
+      <a id="idp360032" class="indexterm"></a>
 
       Alternatively, you can use the <code class="literal">@expectedException</code>,
       <code class="literal">@expectedExceptionCode</code>,
@@ -633,7 +633,7 @@ class ExceptionTest extends PHPUnit_Framework_TestCase
 }
 ?&gt;</pre>
 <pre class="screen"><strong class="userinput"><code>phpunit ExceptionTest</code></strong>
-PHPUnit 5.2.0 by Sebastian Bergmann and contributors.
+PHPUnit 5.3.0 by Sebastian Bergmann and contributors.
 
 F
 
@@ -654,11 +654,11 @@ Tests: 1, Assertions: 1, Failures: 1.</pre>
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a id="writing-tests-for-phpunit.errors"></a>Testing PHP Errors</h2></div></div></div>
 <p>
-      <a id="idp361008" class="indexterm"></a>
-      <a id="idp361584" class="indexterm"></a>
-      <a id="idp362160" class="indexterm"></a>
-      <a id="idp362736" class="indexterm"></a>
-      <a id="idp363312" class="indexterm"></a>
+      <a id="idp367584" class="indexterm"></a>
+      <a id="idp368160" class="indexterm"></a>
+      <a id="idp368736" class="indexterm"></a>
+      <a id="idp369312" class="indexterm"></a>
+      <a id="idp369888" class="indexterm"></a>
 
       By default, PHPUnit converts PHP errors, warnings, and notices that are
       triggered during the execution of a test to an exception. Using these
@@ -690,7 +690,7 @@ class ExpectedErrorTest extends PHPUnit_Framework_TestCase
 }
 ?&gt;</pre>
 <pre class="screen"><strong class="userinput"><code>phpunit -d error_reporting=2 ExpectedErrorTest</code></strong>
-PHPUnit 5.2.0 by Sebastian Bergmann and contributors.
+PHPUnit 5.3.0 by Sebastian Bergmann and contributors.
 
 .
 
@@ -700,8 +700,8 @@ OK (1 test, 1 assertion)</pre>
 </div>
 </div>
 <br class="example-break"><p>
-      <a id="idp369520" class="indexterm"></a>
-      <a id="idp370112" class="indexterm"></a>
+      <a id="idp376096" class="indexterm"></a>
+      <a id="idp376688" class="indexterm"></a>
 
       <code class="literal">PHPUnit_Framework_Error_Notice</code> and
       <code class="literal">PHPUnit_Framework_Error_Warning</code> represent PHP notices
@@ -748,7 +748,7 @@ class FileWriter
 
 ?&gt;</pre>
 <pre class="screen"><strong class="userinput"><code>phpunit ErrorSuppressionTest</code></strong>
-PHPUnit 5.2.0 by Sebastian Bergmann and contributors.
+PHPUnit 5.3.0 by Sebastian Bergmann and contributors.
 
 .
 
@@ -802,7 +802,7 @@ class OutputTest extends PHPUnit_Framework_TestCase
 }
 ?&gt;</pre>
 <pre class="screen"><strong class="userinput"><code>phpunit OutputTest</code></strong>
-PHPUnit 5.2.0 by Sebastian Bergmann and contributors.
+PHPUnit 5.3.0 by Sebastian Bergmann and contributors.
 
 .F
 
@@ -883,7 +883,7 @@ class ArrayDiffTest extends PHPUnit_Framework_TestCase
 }
 ?&gt;</pre>
 <pre class="screen"><strong class="userinput"><code>phpunit ArrayDiffTest</code></strong>
-PHPUnit 5.2.0 by Sebastian Bergmann and contributors.
+PHPUnit 5.3.0 by Sebastian Bergmann and contributors.
 
 F
 
@@ -935,7 +935,7 @@ class LongArrayDiffTest extends PHPUnit_Framework_TestCase
 }
 ?&gt;</pre>
 <pre class="screen"><strong class="userinput"><code>phpunit LongArrayDiffTest</code></strong>
-PHPUnit 5.2.0 by Sebastian Bergmann and contributors.
+PHPUnit 5.3.0 by Sebastian Bergmann and contributors.
 
 F
 
@@ -990,7 +990,7 @@ class ArrayWeakComparisonTest extends PHPUnit_Framework_TestCase
 }
 ?&gt;</pre>
 <pre class="screen"><strong class="userinput"><code>phpunit ArrayWeakComparisonTest</code></strong>
-PHPUnit 5.2.0 by Sebastian Bergmann and contributors.
+PHPUnit 5.3.0 by Sebastian Bergmann and contributors.
 
 F
 

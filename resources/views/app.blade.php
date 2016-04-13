@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>PHPUnit Documentation</title>
+        <title>Trudnoca.hr</title>
         <link rel="stylesheet" href="{{ elixir('assets/css/app.css') }}">
     </head>
 
@@ -10,10 +10,10 @@
         <nav class="tm-navbar uk-navbar uk-navbar-attached">
             <div class="uk-container uk-container-center">
 
-                <a class="uk-navbar-brand uk-hidden-small" href="/">PHPUnit</a>
+                <a class="uk-navbar-brand uk-hidden-small" href="/">Trudnoca.hr</a>
 
                 <ul class="uk-navbar-nav uk-navbar-flip uk-hidden-small">
-                    <li class="uk-active"><a href="/">Documentation</a></li>
+                    <li class="uk-active"><a href="/">Trudnoca.hr</a></li>
                 </ul>
 
                 <a href="#tm-offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>

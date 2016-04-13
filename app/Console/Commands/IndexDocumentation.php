@@ -1,9 +1,11 @@
 <?php namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use TeamTNT\TNTSearch;
+use TeamTNT\TNTSearch\TNTSearch;
 use Config;
 use Goutte\Client;
+use App\Url;
+use App\Article;
 
 class IndexDocumentation extends Command
 {
@@ -12,7 +14,7 @@ class IndexDocumentation extends Command
      *
      * @var string
      */
-    protected $name = 'docs:index';
+    protected $name = 'index';
 
     /**
      * The console command description.
@@ -28,36 +30,66 @@ class IndexDocumentation extends Command
      */
     public function handle()
     {
-        $this->scrapePHPUnitDe();
+        //$this->scrapePHPUnitDe();
 
         $tnt = new TNTSearch;
 
         $config = [
-            "storage"   => storage_path(),
-            "driver"    => 'filesystem',
-            "location"  => base_path('resources/docs/'),
-            "extension" => "html",
-            "exclude"   => ['index.html']
+            'driver'    => 'sqlite',
+            'database'  => base_path().'/database/database.sqlite',
+            'username'  => '',
+            'password'  => '',
+            'storage'   => storage_path()
         ];
 
         $tnt->loadConfig($config);
-        $indexer = $tnt->createIndex('docs');
+        $indexer = $tnt->createIndex('trudnoca.index');
+        $indexer->query('SELECT * FROM articles;');
+        $indexer->setLanguage('croatian');
         $indexer->run();
     }
 
     public function scrapePHPUnitDe()
     {
         $client = new Client();
-        $crawler = $client->request('GET', 'https://phpunit.de/manual/current/en/index.html');
-        $toc = $crawler->filter('.toc');
-        file_put_contents(base_path('resources/docs/').'index.html', $toc->html());
-        
-        $crawler->filter('.toc > dt a')->each(function($node) use ($client) {
-            $href = $node->attr('href');
-            $this->info("Scraped: " . $href);
-            $crawler = $client->request('GET', $href);
-            $chapter = $crawler->filter('.col-md-8 .chapter, .col-md-8 .appendix')->html();
-            file_put_contents(base_path('resources/docs/').$href, $chapter);
-        });
+        do{
+            $link = Url::where('scraped', 0)->first();
+
+            $crawler = $client->request('GET', $link->url);
+
+            $crawler->filter('a')->each(function ($node) {
+                preg_match("/www.trudnoca.hr\/(.*)/",$node->attr('href'), $matches);
+                if(count($matches) > 1) {
+                    try {
+                        $url = new Url;
+                        $url->url = $node->attr('href');
+                        $url->scraped = 0;
+                        $url->save();
+                    } catch (\Exception $e) {
+                        //echo $e->getMessage() . "\n";
+                    }
+                }
+            });
+            $article = new Article;
+
+            $crawler->filter('body.single-post h1')->each(function($node) use (&$article) {
+                $article->title = $node->text();
+            });
+
+            $crawler->filter('.content .article_wrap .text-control')->each(function($node) use (&$article) {
+                $article->article = $node->html();
+            });
+
+            $article->url = $link->url;
+
+            if($article->title) {
+                $article->save();
+                echo $article->title . "\n";
+            }
+
+            $link->scraped = 1;
+            $link->save();
+
+        } while($link);
     }
 }

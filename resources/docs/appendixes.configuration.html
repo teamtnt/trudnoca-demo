@@ -9,7 +9,7 @@
     </p>
 <pre class="screen">&lt;phpunit
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/5.2/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.5/phpunit.xsd"
          backupGlobals="true"
          backupStaticAttributes="false"
          &lt;!--bootstrap="/path/to/bootstrap.php"--&gt;
@@ -113,7 +113,7 @@
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a id="appendixes.configuration.testsuites"></a>Test Suites</h2></div></div></div>
 <p>
-      <a id="idp1434608" class="indexterm"></a>
+      <a id="idp1702240" class="indexterm"></a>
 
       The <code class="literal">&lt;testsuites&gt;</code> element and its
       one or more <code class="literal">&lt;testsuite&gt;</code> children can be
@@ -149,7 +149,7 @@
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a id="appendixes.configuration.groups"></a>Groups</h2></div></div></div>
 <p>
-      <a id="idp1442880" class="indexterm"></a>
+      <a id="idp1710400" class="indexterm"></a>
 
       The <code class="literal">&lt;groups&gt;</code> element and its
       <code class="literal">&lt;include&gt;</code>,
@@ -180,8 +180,8 @@
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a id="appendixes.configuration.whitelisting-files"></a>Whitelisting Files for Code Coverage</h2></div></div></div>
 <p>
-      <a id="idp1450976" class="indexterm"></a>
-      <a id="idp1451552" class="indexterm"></a>
+      <a id="idp1718496" class="indexterm"></a>
+      <a id="idp1719072" class="indexterm"></a>
 
       The <code class="literal">&lt;filter&gt;</code> element and its children can
       be used to configure the whitelist for the code coverage reporting.
@@ -201,7 +201,7 @@
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a id="appendixes.configuration.logging"></a>Logging</h2></div></div></div>
 <p>
-      <a id="idp1455040" class="indexterm"></a>
+      <a id="idp1722560" class="indexterm"></a>
 
       The <code class="literal">&lt;logging&gt;</code> element and its
       <code class="literal">&lt;log&gt;</code> children can be used to configure the
@@ -252,8 +252,8 @@
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a id="appendixes.configuration.test-listeners"></a>Test Listeners</h2></div></div></div>
 <p>
-      <a id="idp1526128" class="indexterm"></a>
-      <a id="idp1526720" class="indexterm"></a>
+      <a id="idp1422816" class="indexterm"></a>
+      <a id="idp1423408" class="indexterm"></a>
 
       The <code class="literal">&lt;listeners&gt;</code> element and its
       <code class="literal">&lt;listener&gt;</code> children can be used to attach
@@ -292,9 +292,9 @@
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a id="appendixes.configuration.php-ini-constants-variables"></a>Setting PHP INI settings, Constants and Global Variables</h2></div></div></div>
 <p>
-      <a id="idp1532288" class="indexterm"></a>
-      <a id="idp1532864" class="indexterm"></a>
-      <a id="idp1533440" class="indexterm"></a>
+      <a id="idp1428976" class="indexterm"></a>
+      <a id="idp1429552" class="indexterm"></a>
+      <a id="idp1430128" class="indexterm"></a>
 
       The <code class="literal">&lt;php&gt;</code> element and its children can be
       used to configure PHP settings, constants, and global variables. It can
@@ -331,10 +331,21 @@ $_REQUEST['foo'] = 'bar';</pre>
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a id="appendixes.configuration.selenium-rc"></a>Configuring Browsers for Selenium RC</h2></div></div></div>
 <p>
-      <a id="idp1538816" class="indexterm"></a>
+      <a id="idp1435504" class="indexterm"></a>
 
-      The following PHP code can be used to configure a list of Selenium
-      RC servers:
+      The <code class="literal">&lt;selenium&gt;</code> element and its
+      <code class="literal">&lt;browser&gt;</code> children can be used to
+      configure a list of Selenium RC servers.
+    </p>
+<pre class="screen">&lt;selenium&gt;
+  &lt;browser name="Firefox on Linux"
+           browser="*firefox /usr/lib/firefox/firefox-bin"
+           host="my.linux.box"
+           port="4444"
+           timeout="30000"/&gt;
+&lt;/selenium&gt;</pre>
+<p>
+      The XML configuration above corresponds to the following PHP code:
     </p>
 <pre class="screen">class WebTest extends PHPUnit_Extensions_SeleniumTestCase
 {

@@ -3,7 +3,9 @@
 use App\Documentation;
 use Symfony\Component\DomCrawler\Crawler;
 use Illuminate\Http\Request;
-use TeamTNT\TNTSearch;
+use TeamTNT\TNTSearch\TNTSearch;
+use TeamTNT\TNTSearch\Stemmer\CroatianStemmer;
+use App\Article;
 
 class DocsController extends Controller {
 
@@ -33,19 +35,21 @@ class DocsController extends Controller {
      */
     public function show($page = null)
     {
-        $page = str_replace(".html", "", $page);
-        $content = $this->docs->get($page ?: 'installation');
+        $article = Article::where('id', $page)->first();
+
+        if (is_null($article)) {
         
-        if (is_null($content)) {
-            abort(404);
+            return view('docs', [
+                'title' => "Pretrazi trudnoca.hr",
+                'index' => "",
+                'content' => "",
+            ]);
         }
 
-        $title = (new Crawler($content))->filterXPath('//h1');
-
         return view('docs', [
-            'title' => count($title) ? $title->text() : null,
-            'index' => $this->docs->getIndex(),
-            'content' => $content,
+            'title' => $article->title,
+            'index' => "",
+            'content' => $article->article,
         ]);
     }
 
@@ -53,37 +57,45 @@ class DocsController extends Controller {
     {
         $this->tnt->loadConfig([
             "storage"   => storage_path(),
-            "driver"    => 'filesystem',
         ]);
 
-        $this->tnt->selectIndex("docs");
+        $this->tnt->selectIndex("trudnoca.index");
         $this->tnt->asYouType = true;
 
         $results = $this->tnt->search($request->get('query'), $request->get('params')['hitsPerPage']);
-
         return $this->processResults($results, $request);
     }
 
     public function processResults($res, $request)
     {
         $data = ['hits' => [], 'nbHits' => count($res)];
+        $query = CroatianStemmer::stem(trim($request->get('query')));
 
-        foreach ($res as $result) {
-            $file = file_get_contents($result['path']);
-            $crawler = new Crawler;
-            $crawler->addHtmlContent($file);
-            $title = $crawler->filter('h1')->text();
+        if (count($res['ids']) == 0) {
+            return response()->json($data);
+        }
+        $order = "";
+        foreach ($res['ids'] as $index => $id) {
+            $order .= "WHEN $id THEN $index ";
+        }
 
-            $relevant = $this->tnt->snippet($request->get('query'), strip_tags($file));
+        $articles = Article::whereIn('id', $res['ids'])
+                    ->orderByRaw("CASE id $order END")
+                    ->get();
+
+        foreach ($articles as $article) {
+            $title = $article->title;
+
+            $relevant = $this->tnt->snippet($query, strip_tags($article->article));
 
             $data['hits'][] = [
-                'link' => basename($result['path']),
+                'link' => $article->id,
                 '_highlightResult' => [
                     'h1' => [
-                        'value' => $this->tnt->highlight($title, $request->get('query')),
+                        'value' => $title,
                     ],
                     'content' => [
-                        'value' => $this->tnt->highlight($relevant, $request->get('query')),
+                        'value' => $relevant,
                     ]
                 ]
             ];
